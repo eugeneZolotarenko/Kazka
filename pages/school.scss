@@ -1,0 +1,401 @@
+ol{
+	margin: 0;
+}
+$colors: (
+    yellow: #EEC407,
+    beach-yellow: #EDC607,
+    red: #E90000,
+    blue-sky: #68BBE5,
+    blue-sea: #04AEE4,
+    blue-alternative: #100074,
+    orange: #E46F04,
+    green: #CDE600,
+    green-alternative: #00743D,
+    violet: #56006B,
+    purple: rgb(251, 41, 146),
+	white: #fff,
+	almost-white: rgb(250, 250, 250),
+	grey: rgb(42, 42, 42),
+);
+@function color($color-name){
+    @return map-get($colors, $color-name);
+}
+$radius: 10px;
+$shadow: 0 10px 25px rgba(black, 0.2), 0 15px 12px rgba(black, 0.2);
+.header-photo-school{
+	background-image: url("../img/D6K_1967_2.jpg");
+	height: 70vh;
+	width: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	position: relative;
+}
+header{
+	height: 235px;
+	background-color: color(white);
+	width: 100%;
+	display: flex;
+    justify-content: center;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: visible;
+	h3{
+		font-family: Pallete; 
+		position: absolute;
+		font-size: 40px;
+	}
+	    .cloud-part{
+		display: block;
+		 width: 100%;
+		 height: 100%;
+		 background-color: color(blue-sky);
+		 position: relative;
+		 &::after{
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 100%;
+			width: 100%;
+			background: linear-gradient(172deg, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 50%);
+			background-repeat: no-repeat;
+			background-position: center;
+		 }
+		 .clouds{
+			position: relative;
+			z-index: 0;
+		 }
+		}
+		.title{
+			color: #E90000;
+			align-self: center;
+			margin-left: 15%;
+			margin-top: 5%;
+		}
+    }
+	main{
+		width: 100%;
+		height: 100%;
+		background-color: color(white);
+		display: flex;
+		justify-content: center;
+	    .school-content{
+			width: 1140px;
+			height: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			padding-top: 10px;
+			padding-bottom: 30px;
+			color: color(grey);
+			a{
+				color: color(red);
+			}
+			h2{
+				font-family: Pallete;
+				font-size: 170%;
+			}
+			h2, h3, h4, h5, h6{
+				width: 90%;
+				margin: 30px auto 0 auto;
+				text-align: center;
+			}
+			ul{
+				margin: 30px 0 0 2%;
+				list-style: circle;
+				line-height: 1.6;
+			}
+			p{
+				margin-top: 30px;
+			}
+			.msacwl-slider-wrap{
+				margin: 30px auto 0 auto;
+				max-width: 75%;
+			}
+			iframe{
+				height: 450px;
+				width: 80%; 
+				border: none;
+				margin: 30px auto 0 auto;
+			}
+			.winners-title-1{
+				width: 30%;
+				margin-left: 0;
+				margin-right: 0;
+				font-family: BadScript;
+				font-weight: bold;
+				color: #006838;
+				font-size: 40px;
+			}
+			.winners-title-2{
+				width: 35%;
+				margin-left: 0;
+				margin-right: 0;
+				font-family: BadScript;
+				color: #EFA60B;
+				font-size: 40px;
+			}
+			.winners-1{
+				font-family: Montserrat-Italic;
+				font-size: 17px;
+				width: 100%;
+			}
+		}
+	}
+.footer-photo-school{
+    background-image: url("../img/D6K_1998_1.jpg");
+	height: 70vh;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+// Rozklad Urokiv
+.block-schedule-title{
+	font-family: BadScript;
+	font-size: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.schedule-card{
+	height: 220px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	border-radius: $radius;
+	box-shadow: $shadow;
+	background-color: color(almost-white);
+}
+.schedule-nav-line{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding-bottom: 120px;
+	span{
+		font-family: BadScript;
+		font-size: 25px;
+		font-weight: bold;
+		display: flex;
+		margin-right: 20px;
+		color: color(red);
+	}
+	.schedule-nav{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 80px;
+		height: 40px;
+		margin: 7px;
+		box-shadow: 0 3px 6px rgba(black, 0.15), 0 6px 3px rgba(black, 0.15);
+		&:active{
+			box-shadow: none;
+		}
+	}
+	.schedule-nav-calls{
+		border: 1px solid color(blue-sea);
+		border-radius: $radius;
+		color: color(blue-sea);
+		&:hover{
+			color: color(white);
+			background-color: color(blue-sea);
+		}
+	}
+	.schedule-nav-1{
+		border: 1px solid color(purple);
+		border-radius: $radius;
+		color: color(purple);
+		&:hover{
+			color: color(white);
+			background-color: color(purple);
+		}
+	}
+	.schedule-nav-2{
+		border: 1px solid color(green-alternative);
+		border-radius: $radius;
+		color: color(green-alternative);
+		&:hover{
+			color: color(white);
+			background-color: color(green-alternative);
+		}
+	}
+	.schedule-nav-3{
+		border: 1px solid color(violet);
+		border-radius: $radius;
+		color: color(violet);
+		&:hover{
+			color: color(white);
+			background-color: color(violet);
+		}
+	}
+	.schedule-nav-4{
+		border: 1px solid color(blue-alternative);
+		border-radius: $radius;
+		color: color(blue-alternative);
+		&:hover{
+			color: color(white);
+			background-color: color(blue-alternative);
+		}
+	}
+}
+
+.calls-block{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	line-height: 2rem;
+	grid-gap: 25px;
+	text-align: center;
+	.block-schedule-title{
+		color: color(blue-sea);
+	}
+	.schedule-card{
+		height: 250px;
+		width: 40%;
+		font-size: 18px;
+		border: 1px solid color(blue-sea);
+		span{
+			font-family: BadScript;
+			color: color(blue-sea);
+			font-size: 24px;
+		}
+	}
+}
+
+.schedule-1-class, .schedule-2-class, .schedule-3-class, .schedule-4-class{
+	width: 100%;
+	height: 100%;
+	display: grid;
+	margin-top: 20%;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 25px;
+	text-align: center;
+	line-height: 1.7rem;
+		strong{
+			font-family: BadScript;
+			display: block;
+			font-size: 23px;
+		}
+}
+// .schedule-2-class, .schedule-3-class, .schedule-4-class{
+// 	margin-top: 20%;
+// }
+.schedule-1-class{
+	.block-schedule-title{
+		color: color(purple);
+	}
+	.schedule-card{
+		border: 1px solid color(purple);
+		strong{
+			color: color(purple);
+		}
+	}
+}
+.schedule-2-class{
+	.block-schedule-title{
+		color: color(green-alternative);
+	}
+	.schedule-card{
+		border: 1px solid color(green-alternative);
+		strong{
+			color: color(green-alternative);
+		}
+	}
+}
+.schedule-3-class{
+	.block-schedule-title{
+		color: color(violet );
+	}
+	.schedule-card{
+		border: 1px solid color(violet);
+		strong{
+			color: color(violet );
+		}
+	}
+}
+.schedule-4-class{
+	.block-schedule-title{
+		color: color( blue-alternative);
+	}
+	.schedule-card{
+		border: 1px solid color(  blue-alternative);
+		strong{
+			color: color( blue-alternative);
+		}
+	}
+}
+
+@media (max-width: 1170px){
+	main .school-content {
+		width: 95%;
+	}
+}
+@media (max-width: 1000px){
+	.calls-block .schedule-card {
+		width: 50%;
+	}
+	.schedule-1-class, .schedule-2-class, .schedule-3-class, .schedule-4-class {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (max-width: 750px){
+	.calls-block {
+		flex-direction: column;
+		.schedule-card {
+			margin-top: 30px;
+			width: 100%;
+		}
+	}
+	
+	main .school-content {
+		width: 90%;
+	}
+	.schedule-1-class, .schedule-2-class, .schedule-3-class, .schedule-4-class {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+@media (max-width: 820px){
+	header .title {
+		text-align: end;
+		margin-right: 2%;
+	}
+}
+@media (max-width: 620px){
+	header{
+		height: 255px;
+	    .title {
+			margin-top: 8%;
+			font-size: 30px;
+		}
+	}
+}
+@media (max-width: 480px){
+	.header-photo-school{
+       .container-semicircles {
+			top: 0;
+	   }		
+}
+	header .title {
+		margin-top: 15%;
+	}
+}
+@media (max-width: 380px){
+	header .title {
+		margin-top: 20%;
+	}
+}
+@media (min-width: 2000px){
+	header .title {
+		margin-top: 2%;
+	}
+}

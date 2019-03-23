@@ -1,0 +1,228 @@
+$colors: (
+    yellow: #EEC407,
+    beach-yellow: #EDC607,
+    red: #E90000,
+    blue-sky: #68BBE5,
+    blue-sea: #04AEE4,
+    blue-alternative: #100074,
+    orange: #E46F04,
+    green: #CDE600,
+    green-alternative: #00743D,
+    violet: #56006B,
+    purple: rgb(251, 41, 146),
+	white: #fff,
+	almost-white: rgb(250, 250, 250),
+	grey: rgb(42, 42, 42),
+);
+@function color($color-name){
+    @return map-get($colors, $color-name);
+}
+$radius: 10px;
+$shadow: 0 10px 25px rgba(black, 0.2), 0 15px 12px rgba(black, 0.2);
+.header-photo-gallery{
+	background-image: url("../img/D6K_7517_1.jpg");
+	height: 75vh;
+	width: 100%;
+	background-attachment: fixed;
+    background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+    position: relative;
+}
+@media (max-width: 480px){
+    // First Part
+    .header-photo-gallery{
+       height: 80vh;
+       .container-semicircles{
+           top: 0;
+       }
+   }
+   .item-desc{
+       display: none !important;
+   }
+}
+@media (max-width: 1160px){
+    .gallery-content{
+        width: 95% !important;
+    }
+}
+.gallery-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    .gallery-wrapper-content{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: linear-gradient(1deg, #edc607, #e46f04, #cde600);
+        background-size: 600% 600%;
+        animation: AnimationName 30s ease infinite;
+        @keyframes AnimationName { 
+            0%{background-position:51% 0%}
+            50%{background-position:50% 100%}
+            100%{background-position:51% 0%} 
+        }
+  
+        .gallery-content{
+            width: 1140px;
+            height: 100%;
+            z-index: 10;
+            h3{
+            font-family: Pallete; 
+            text-align: center;
+            font-size: 40px;
+            color: white
+        }
+        // Filter Gallery Styles
+        .filtr-container{
+            padding: 0 5%;
+            margin: 2% 0;
+        }
+        .simplefilter{
+            margin: 40px 0;
+            width: 100% !important;
+            li{
+                padding: 13px;
+                margin: 5px;
+                font-size: 20px;
+                border: none;
+                border-radius: $radius;
+                background-color: color(white) !important;
+                transition: all 0.4s ease-in-out;
+                &:hover{
+                    color: color(white) !important;
+                    border: none;
+                    box-shadow: $shadow;
+                }
+                &:active{
+                        box-shadow: none;
+                }
+                &:nth-child(1){
+                    color: color(purple);
+                    border: 1px solid color(purple);
+                    &:hover{
+                        background-color: color(purple) !important;
+                    }
+                }
+                &:nth-child(2){
+                    color: color(blue-sea);
+                    border: 1px solid color(blue-sea);
+                    &:hover{
+                        background-color: color(blue-sea) !important;
+                    }
+                }
+                &:nth-child(3){
+                    color: color(red);
+                    border: 1px solid color(red);
+                    &:hover{
+                        background-color: color(red) !important;
+                    }
+                }
+            }
+            .active{
+                background-color: color(purple) !important;
+                color: color(white) !important;
+                border: none !important;
+                &:hover{
+                    background-color: color(purple) !important;
+                }
+            }
+        }
+        .thumbnail {
+            border: none;
+            background: none;
+            border-radius: $radius;
+            padding: 0;
+            &:hover{
+                box-shadow: $shadow;
+            }
+        }
+        .item-desc{
+            font-family: Montserrat-Italic;
+            border-radius: $radius;
+        }
+        // End Filter Gallery Styles
+        
+        }
+        &::before{
+            content: "";
+            width: 100%;
+            height: 250px;
+            position: absolute;
+            z-index: 0;
+            top: -1%;
+            left: 0%;
+            background: linear-gradient(0deg, rgba(255,255,255,0) 55%, color(beach-yellow) 93%);
+        }
+        &::after{
+            content: "";
+            width: 100%;
+            height: 250px;
+            position: absolute;
+            z-index: 10;
+            bottom: 0%;
+            left: 0%;
+            background: linear-gradient(0deg, rgba(255,255,255,0) 55%, color(beach-yellow) 93%);
+            transform: rotate(180deg);
+        }
+
+    }
+    .cloud-wrapper{
+        height: 160px;
+        width: 100%;
+        background-color: color(blue-sky);
+        overflow: hidden;
+        position: relative;
+        &::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 26%, color(beach-yellow) 85%);
+        }
+    }
+}
+.footer-photo-gallery{
+    background-image: url("../img/D6K_2012_1.jpg");
+	height: 80vh;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    .yellow-wave{
+        background-image: url(../img/yellow-wave.png);
+        background-repeat: repeat-x;
+        position: absolute;
+        display: block;
+        top: 0%;
+        left: 0%;
+        height: 70px;
+        z-index: 990;
+        -webkit-animation: yellow-wave 10s infinite linear;
+                animation: yellow-wave 10s infinite linear;
+        width: 100%;
+        transform: rotate(180deg);
+        @keyframes yellow-wave {
+            0% {
+              background-position: 0;
+            }
+            100% {
+              background-position: 1000px;
+            }
+          }
+    }
+}
